@@ -90,8 +90,10 @@ function formatCell(col, value) {
   // Date
   if (col.toLowerCase() === 'last updated' && value) {
     const date = new Date(value)
+    // Pad minutes with leading zero if necessary.
+    const minutes = ('0'+date.getMinutes()).slice(-2)
     return `${date.getMonth() +
-      1}/${date.getDate()} at ${date.getHours()}:${date.getMinutes()}`
+      1}/${date.getDate()} at ${date.getHours()}:${minutes}`
   }
 
   return value
